@@ -1,0 +1,17 @@
+.row{
+    margin-top: 20px;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 14px 16px;
+    font-size: 20px;
+
+
+}
+.link:hover{
+    background-color: white;
+    padding: 14px 16px;
+    color: black;
+}
