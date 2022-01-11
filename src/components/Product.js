@@ -15,7 +15,6 @@ export default function Product(props) {
         <button class="btn btn-dark" onClick={()=>addItem(props.item)}>Add to cart</button>
         </div>
         </div>
-        
         </div>
         
     )
