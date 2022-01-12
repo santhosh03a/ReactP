@@ -1,11 +1,8 @@
 import React from "react";
 import './login.css';
-import {
-    Link,Redirect
-  } from "react-router-dom";
+import {Link,Redirect} from "react-router-dom";
+import { FaGoogle,FaEnvelope,FaKey} from 'react-icons/fa';
   import axios from "axios";
-  import { useHistory } from 'react-router-dom';
-
 class Login extends React.Component{
     
     constructor(props) {
@@ -13,15 +10,20 @@ class Login extends React.Component{
         this.state = {
             email: '',
             pass:'',
-            msg:''
+            msg:'',
+            redirect:false
         }
     }  
 
     handleSubmit=event=>{
-        
+        event.preventDefault()
         axios.post('http://localhost:8080/login', this.state)
             .then(res => {
                 console.log("login successfull")
+                this.setState(
+                    {redirect:true}
+                )
+                
             })
             .catch(err => {
                 console.log("invalid credentials")
@@ -35,16 +37,29 @@ class Login extends React.Component{
     render(){
 
         const{email,pass}=this.state
-
         
     return(
-    <div>
-  
-        <input type="email" id="inputEmail" name="email" value={email} onChange={this.handleChange} placeholder="Email address"  />
-        <input type="password" id="inputPassword"  name="pass" value={pass} onChange={this.handleChange} placeholder="Password"  />
-        <button type="submit" onClick={this.handleSubmit}>Sign in</button>
-        <p>{this.state.msg}</p>
-    </div>
+
+    <div class="wrapperr">
+        {this.state.redirect?(<Redirect push to="/" />):null}
+<div class="text-center mt-4 name"> Log In </div>
+<form class="p-3 mt-3">
+<div class="form-field d-flex align-items-center"> <FaEnvelope></FaEnvelope>
+<span class="far fa-user"></span> 
+
+<input type="email" name="email" id="email" value={email} required placeholder="Enter your Email"onChange={this.handleChange}/> </div>
+
+<div class="form-field d-flex align-items-center" > <FaKey></FaKey>
+
+
+<input type="password" name="pass" id="password" required value={pass} onChange={this.handleChange} placeholder="Password" /> </div> 
+
+   <button class="btn mt-3"  type="submit" onClick={this.handleSubmit}>Log in</button>
+   <p>{this.state.msg}</p>
+</form>
+<div class="text-center fs-6"> <FaGoogle></FaGoogle> <Link to="Glogin"><a>Sign up with google</a> </Link> or <Link to="Register"><a>Sign up</a> </Link></div>
+
+</div>
          
     );
     }

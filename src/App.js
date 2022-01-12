@@ -13,6 +13,9 @@ import {
 import Home from './components/Home';
 import Login from './components/login';
 import Cart from './components/cart';
+import About from './components/About'
+import Contact from './components/Contact';
+import ProductDetails from './components/ProductDetail';
 
 function App() {
   
@@ -26,8 +29,12 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/Cart' component={Cart} />
+          <Route exact path='/About' component={About}/>
+          <Route exact path='/Contact' component={Contact}/>
+          <Route exact path='/product/:id' component={ProductDetails}/>
           </Switch>
           </CartProvider>
+          <Footer ></Footer >
           </Router>
    </div>
   );
