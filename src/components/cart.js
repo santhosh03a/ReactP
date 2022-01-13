@@ -1,5 +1,6 @@
 import React from 'react';
 import {useCart} from "react-use-cart";
+import {Link} from 'react-router-dom'
 const Cart=()=>{ 
         const{
             items,
@@ -45,7 +46,7 @@ const Cart=()=>{
                         
                     <div classname="col-auto">
                         <button className="btn btn-dark m-2" onClick={emptyCart}>Clear Cart</button>
-                        <button className="btn btn-dark m-2">Buy Now</button>
+                        <Link to="/Payhome"><button className="btn btn-dark m-2">Buy Now</button></Link>
                         </div>
                     </div>
                 </div>
