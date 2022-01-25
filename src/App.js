@@ -1,4 +1,3 @@
-
 import './App.css';
 
 import Navbar from './components/navbar';
@@ -18,7 +17,9 @@ import Contact from './components/Contact';
 import ProductDetails from './components/ProductDetail';
 import Payhome from './components/Payhome';
 import Payment from './components/Payment';
-import Ty from './components/Ty'
+import Ty from './components/Ty';
+import Admin from './components/admin';
+import Users from'./components/allusers';
 
 function App() {
   
@@ -37,6 +38,8 @@ function App() {
           <Route exact path='/Contact' component={Contact}/>
           <Route exact path='/product/:id' component={ProductDetails}/>
           <Route exact path='/Ty' component={Ty}/>
+          <Route exact path='/adminlogin' component={Admin}/>
+          <Route exact path='/Users' component={Users}/>
           </Switch>
           </CartProvider>
           <Footer ></Footer >
